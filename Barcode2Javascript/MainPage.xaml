@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Barcode2Javascript.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" Name="userControl" Width="420" Height="420">
+    <Canvas Name="canvas1">
+        <Grid x:Name="LayoutRoot">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="210" />
+                <ColumnDefinition Width="210" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="210"/>
+                <RowDefinition Height="210"/>
+            </Grid.RowDefinitions>
+
+            <!-- StackPanel to hold the Buttons -->
+            <StackPanel Orientation="Vertical"  Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="StartButton" Click="StartButton_Click" Height="50" 
+              Width="100" Content="Start Camera" />
+                <Button Content="Test Audio" Name="TestAudio" Height="50" Width="100" Click="TestAudio_Click" />
+            </StackPanel>
+
+            <!-- The Fill property will be set to the webCam VideoBrush -->
+            <Rectangle x:Name="webcamDisplay" Grid.Column="1" Width="200" Height="200" MouseLeftButtonDown="webcamDisplay_MouseLeftButtonDown" Cursor="None" HorizontalAlignment="Center" VerticalAlignment="Center" MouseMove="webcamDisplay_MouseMove" MouseEnter="webcamDisplay_MouseEnter" MouseLeave="webcamDisplay_MouseLeave" />
+            <ListBox Grid.Row="1" Height="200" HorizontalAlignment="Center" Name="capturedBarcodes" VerticalAlignment="Center" Width="200" SelectionChanged="capturedBarcodes_SelectionChanged" />
+            <Rectangle Grid.Column="1" Grid.Row="1" Height="200" HorizontalAlignment="Center" Name="capturedImage" StrokeThickness="1" VerticalAlignment="Center" Width="200" />
+            
+            <MediaElement Height="20" HorizontalAlignment="Left" Name="mediaElement1" VerticalAlignment="Top" Width="101" Source="beep.mp3" Volume="1" AutoPlay="False" MediaEnded="mediaElement1_MediaEnded" />
+        </Grid>
+        <Image x:Name="customIcon" Width="16" Cursor="None" Source="Images/zoom_in.png" Height="16" Visibility="Collapsed" Margin="10" />
+    </Canvas>
+</UserControl>
