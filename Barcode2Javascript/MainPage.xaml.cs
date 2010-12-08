@@ -33,8 +33,9 @@ namespace Barcode2Javascript
             captureSource = new CaptureSource();
             captureSource.CaptureImageCompleted += new EventHandler<CaptureImageCompletedEventArgs>(captureSource_CaptureImageCompleted);
 
-            // Prevent the listbox from peeking through the expanded webcam display
-            capturedBarcodes.SetValue(Canvas.ZIndexProperty, -1);  
+            // Prevent displays from peeking through the expanded webcam display
+            capturedBarcodes.SetValue(Canvas.ZIndexProperty, -1);
+            capturedImage.SetValue(Canvas.ZIndexProperty, -1);  
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
